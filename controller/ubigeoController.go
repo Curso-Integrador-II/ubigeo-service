@@ -9,7 +9,7 @@ import (
 
 func SearchUbigeo(db *gorm.DB) fiber.Handler {
 	return func(c *fiber.Ctx) error {
-		state := c.Query("State")
+		state := c.Query("state")
 		province := c.Query("province")
 		county := c.Query("county")
 		var results []model.Ubigeo
