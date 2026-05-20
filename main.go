@@ -24,10 +24,14 @@ func main() {
 	app := fiber.New()
 	secretKey := os.Getenv("GATEWAY_SECRET")
 	app.Use(func(c *fiber.Ctx) error {
+		if c.Method() == fiber.MethodOptions {
+			return c.Next()
+		}
+
 		secret := c.Get("X-Gateway-Secret")
-		if secret != secretKey {
+		if secret == "" || secret != secretKey {
 			return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
-				"error": "Forbidden",
+				"error": "Acceso denegado por el microservicio",
 			})
 		}
 		return c.Next()
