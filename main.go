@@ -36,5 +36,5 @@ func main() {
 	})
 	api := app.Group("/api/v1/ubigeos")
 	api.Get("/search", controller.SearchUbigeo(db))
-	log.Fatal(app.Listen(":8084"))
+	log.Fatal(app.Listen("0.0.0.0:8084"))
 }
