@@ -16,7 +16,7 @@ func ConnectDatabase() *gorm.DB {
 	dbPass := os.Getenv("DB_PASSWORD")
 	dbName := "service_ubigeo"
 	dbHost := os.Getenv("DB_HOST")
-	dbPort := "3307"
+	dbPort := "3306"
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		dbUser, dbPass, dbHost, dbPort, dbName,
 	)
