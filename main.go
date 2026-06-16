@@ -15,7 +15,7 @@ func main() {
 		App:                   "ubigeo-service",
 		IP:                    "127.0.0.1",
 		Port:                  8084,
-		RenewalIntervalInSecs: 10,
+		RenewalIntervalInSecs: 10,clear
 		DurationInSecs:        30,
 	})
 	client.Start()*/
@@ -26,7 +26,6 @@ func main() {
 		if c.Method() == fiber.MethodOptions {
 			return c.Next()
 		}
-
 		secret := c.Get("X-Gateway-Secret")
 		if secret == "" || secret != secretKey {
 			return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
