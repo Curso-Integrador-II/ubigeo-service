@@ -7,11 +7,10 @@ import (
 	"ubigeo-service/controller"
 
 	"github.com/gofiber/fiber/v2"
-	eureka "github.com/xuanbo/eureka-client"
 )
 
 func main() {
-	client := eureka.NewClient(&eureka.Config{
+	/*client := eureka.NewClient(&eureka.Config{
 		DefaultZone:           "http://localhost:8761/eureka/",
 		App:                   "ubigeo-service",
 		IP:                    "127.0.0.1",
@@ -19,7 +18,7 @@ func main() {
 		RenewalIntervalInSecs: 10,
 		DurationInSecs:        30,
 	})
-	client.Start()
+	client.Start()*/
 	db := config.ConnectDatabase()
 	app := fiber.New()
 	secretKey := os.Getenv("GATEWAY_SECRET")
